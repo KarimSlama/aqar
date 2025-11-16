@@ -20,7 +20,7 @@ mixin _$LoginState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String id) success,
+    required TResult Function(UserModel user) success,
     required TResult Function() resetPasswordSent,
     required TResult Function(String error) error,
   }) =>
@@ -29,7 +29,7 @@ mixin _$LoginState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String id)? success,
+    TResult? Function(UserModel user)? success,
     TResult? Function()? resetPasswordSent,
     TResult? Function(String error)? error,
   }) =>
@@ -38,7 +38,7 @@ mixin _$LoginState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String id)? success,
+    TResult Function(UserModel user)? success,
     TResult Function()? resetPasswordSent,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -138,7 +138,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String id) success,
+    required TResult Function(UserModel user) success,
     required TResult Function() resetPasswordSent,
     required TResult Function(String error) error,
   }) {
@@ -150,7 +150,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String id)? success,
+    TResult? Function(UserModel user)? success,
     TResult? Function()? resetPasswordSent,
     TResult? Function(String error)? error,
   }) {
@@ -162,7 +162,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String id)? success,
+    TResult Function(UserModel user)? success,
     TResult Function()? resetPasswordSent,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -261,7 +261,7 @@ class _$LoadingImpl implements Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String id) success,
+    required TResult Function(UserModel user) success,
     required TResult Function() resetPasswordSent,
     required TResult Function(String error) error,
   }) {
@@ -273,7 +273,7 @@ class _$LoadingImpl implements Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String id)? success,
+    TResult? Function(UserModel user)? success,
     TResult? Function()? resetPasswordSent,
     TResult? Function(String error)? error,
   }) {
@@ -285,7 +285,7 @@ class _$LoadingImpl implements Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String id)? success,
+    TResult Function(UserModel user)? success,
     TResult Function()? resetPasswordSent,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -347,7 +347,7 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String id});
+  $Res call({UserModel user});
 }
 
 /// @nodoc
@@ -363,13 +363,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
+    Object? user = null,
   }) {
     return _then(_$SuccessImpl(
-      null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
     ));
   }
 }
@@ -377,14 +377,14 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements Success {
-  const _$SuccessImpl(this.id);
+  const _$SuccessImpl(this.user);
 
   @override
-  final String id;
+  final UserModel user;
 
   @override
   String toString() {
-    return 'LoginState.success(id: $id)';
+    return 'LoginState.success(user: $user)';
   }
 
   @override
@@ -392,11 +392,11 @@ class _$SuccessImpl implements Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.user, user) || other.user == user));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode => Object.hash(runtimeType, user);
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -411,11 +411,11 @@ class _$SuccessImpl implements Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String id) success,
+    required TResult Function(UserModel user) success,
     required TResult Function() resetPasswordSent,
     required TResult Function(String error) error,
   }) {
-    return success(id);
+    return success(user);
   }
 
   @override
@@ -423,11 +423,11 @@ class _$SuccessImpl implements Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String id)? success,
+    TResult? Function(UserModel user)? success,
     TResult? Function()? resetPasswordSent,
     TResult? Function(String error)? error,
   }) {
-    return success?.call(id);
+    return success?.call(user);
   }
 
   @override
@@ -435,13 +435,13 @@ class _$SuccessImpl implements Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String id)? success,
+    TResult Function(UserModel user)? success,
     TResult Function()? resetPasswordSent,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(id);
+      return success(user);
     }
     return orElse();
   }
@@ -488,9 +488,9 @@ class _$SuccessImpl implements Success {
 }
 
 abstract class Success implements LoginState {
-  const factory Success(final String id) = _$SuccessImpl;
+  const factory Success(final UserModel user) = _$SuccessImpl;
 
-  String get id;
+  UserModel get user;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -542,7 +542,7 @@ class _$ResetPasswordSentImpl implements ResetPasswordSent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String id) success,
+    required TResult Function(UserModel user) success,
     required TResult Function() resetPasswordSent,
     required TResult Function(String error) error,
   }) {
@@ -554,7 +554,7 @@ class _$ResetPasswordSentImpl implements ResetPasswordSent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String id)? success,
+    TResult? Function(UserModel user)? success,
     TResult? Function()? resetPasswordSent,
     TResult? Function(String error)? error,
   }) {
@@ -566,7 +566,7 @@ class _$ResetPasswordSentImpl implements ResetPasswordSent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String id)? success,
+    TResult Function(UserModel user)? success,
     TResult Function()? resetPasswordSent,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -692,7 +692,7 @@ class _$ErrorImpl implements Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String id) success,
+    required TResult Function(UserModel user) success,
     required TResult Function() resetPasswordSent,
     required TResult Function(String error) error,
   }) {
@@ -704,7 +704,7 @@ class _$ErrorImpl implements Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String id)? success,
+    TResult? Function(UserModel user)? success,
     TResult? Function()? resetPasswordSent,
     TResult? Function(String error)? error,
   }) {
@@ -716,7 +716,7 @@ class _$ErrorImpl implements Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String id)? success,
+    TResult Function(UserModel user)? success,
     TResult Function()? resetPasswordSent,
     TResult Function(String error)? error,
     required TResult orElse(),

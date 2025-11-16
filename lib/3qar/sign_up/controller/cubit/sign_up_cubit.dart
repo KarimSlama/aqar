@@ -2,7 +2,7 @@ import 'package:aqar/3qar/sign_up/data/repository/sign_up_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/model/user_model.dart';
+import '../../data/model/sign_up_request_model.dart';
 import 'sign_up_state.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
@@ -21,25 +21,51 @@ class SignUpCubit extends Cubit<SignUpState> {
     userType = type;
   }
 
-  void signUp() async {
-    emit(SignUpState.loading());
+  Future<void> signUp() async {
+    emit(const SignUpState.loading());
 
-    final userModel = UserModel(
+    final request = SignUpRequest(
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
       firstName: firstNameController.text.trim(),
       lastName: lastNameController.text.trim(),
       phone: phoneController.text.trim(),
-      image: '',
-      userType: userType,
-      password: passwordController.text.trim(),
-      email: emailController.text.trim(),
     );
 
-    final result = await _signUpRepository.signUp(userModel);
+    final result = await _signUpRepository.signUp(request);
 
-    result.when(success: (id) {
-      emit(SignUpState.success(id!));
-    }, failure: (error) {
-      emit(SignUpState.error(error: error));
-    });
+    result.when(
+      success: (user) {
+        print( 'Success ✅ Sign Up User ID: ${user.id}');
+        emit(SignUpState.success(user));
+      },
+      failure: (error) {
+        print('Error ❌ Sign Up: $error');
+        emit(SignUpState.error(error: error));
+      },
+    );
   }
 }
+
+  // void signUp() async {
+  //   emit(SignUpState.loading());
+
+  //   final userModel = UserModel(
+  //     firstName: firstNameController.text.trim(),
+  //     lastName: lastNameController.text.trim(),
+  //     phone: phoneController.text.trim(),
+  //     image: '',
+  //     userType: userType,
+  //     password: passwordController.text.trim(),
+  //     email: emailController.text.trim(),
+  //   );
+
+  //   final result = await _signUpRepository.signUp(userModel);
+
+  //   result.when(success: (id) {
+  //     emit(SignUpState.success(id!));
+  //   }, failure: (error) {
+  //     print('Error ❌ Sign Up: $error');
+  //     emit(SignUpState.error(error: error));
+  //   });
+  // }

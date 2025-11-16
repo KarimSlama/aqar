@@ -18,8 +18,8 @@ class LoginBlocListener extends StatelessWidget {
     return BlocListener<LoginCubit, LoginState>(
       listener: (context, state) => state.maybeWhen(
         loading: () => CircularProgressIndicator(),
-        success: (id) async {
-          await SharedPreference.setSecureString(Constants.USER_KEY, id);
+        success: (user) async {
+          await SharedPreference.setSecureString(Constants.USER_KEY, user.id);
           isLoggedUser = true;
           if (context.mounted) {
             Loaders.successSnackBar(

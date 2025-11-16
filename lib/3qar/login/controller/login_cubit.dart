@@ -18,8 +18,8 @@ class LoginCubit extends Cubit<LoginState> {
     final result = await loginRepository.login(LoginRequestBody(
         email: emailController.text, password: passwordController.text));
 
-    result.when(success: (id) {
-      emit(LoginState.success(id ?? ''));
+    result.when(success: (user) {
+      emit(LoginState.success(user));
     }, failure: (error) {
       emit(LoginState.error(error: error));
     });
@@ -28,18 +28,21 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> signInWithGoogle() async {
     emit(LoginState.loading());
     final result = await loginRepository.signInWithGoogle();
-    result.when(
-      success: (id) => emit(LoginState.success(id ?? '')),
-      failure: (error) => emit(LoginState.error(error: error)),
-    );
+    result.when(success: (user) {
+      print('Success Google Login ID: ${user.id}');
+      emit(LoginState.success(user));
+    }, failure: (error) {
+      print('Error ❌ Google Login: $error');
+      emit(LoginState.error(error: error));
+    });
   }
 
   Future<void> signInWithFacebook() async {
     emit(LoginState.loading());
     final result = await loginRepository.signInWithFacebook();
-    result.when(success: (id) {
-      print('Success ✅Facebook Login ID: $id');
-      emit(LoginState.success(id ?? ''));
+    result.when(success: (user) {
+      print('Success ✅Facebook Login ID: ${user.id}');
+      emit(LoginState.success(user));
     }, failure: (error) {
       print('Error ❌ Facebook Login: $error');
       emit(LoginState.error(error: error));
