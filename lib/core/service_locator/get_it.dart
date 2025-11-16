@@ -69,8 +69,8 @@ Future<void> setupServiceLocator() async {
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 
   /// SIGN UP
-  getIt.registerLazySingleton<SignUpRepository>(
-      () => SignUpRepository(getIt(), getIt()));
+  getIt
+      .registerLazySingleton<SignUpRepository>(() => SignUpRepository(getIt()));
   getIt.registerFactory<SignUpCubit>(() => SignUpCubit(getIt()));
 
   /// BUYER NAVIGATION CUBIT

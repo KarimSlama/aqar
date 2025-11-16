@@ -45,3 +45,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+sentry.properties
+ 
+# Android signing keys (DO NOT COMMIT)
+android/key.properties
+**/*.jks
+**/*.keystore

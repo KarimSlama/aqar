@@ -16,8 +16,6 @@ class UserModel {
   @JsonKey(name: 'about_me')
   final String? aboutMe;
 
-  final String? password;
-
   final String? image;
 
   @JsonKey(name: 'user_type')
@@ -32,7 +30,6 @@ class UserModel {
     required this.image,
     required this.userType,
     this.id,
-    this.password,
     this.aboutMe,
     this.createdAt,
     required this.email,
@@ -56,7 +53,6 @@ class UserModel {
       lastName: lastName ?? this.lastName,
       email: email ?? this.email,
       phone: phone ?? this.phone,
-      password: password ?? this.password,
       image: image ?? this.image,
       userType: userType ?? this.userType,
       aboutMe: aboutMe ?? this.aboutMe,
@@ -74,7 +70,6 @@ class UserModel {
     phone: '',
     image: '',
     id: '',
-    password: '',
     email: '',
     userType: '',
     aboutMe: '',

@@ -38,9 +38,20 @@ class Constants {
   }
 
   static Future<void> launchMyUrl(String urlString) async {
-  final Uri _url = Uri.parse(urlString);
-  if (!await launchUrl(_url)) {
-    throw Exception('Could not launch $_url');
+    final Uri _url = Uri.parse(urlString);
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
   }
-}
+
+  static String handleError(dynamic error) {
+    if (error.toString().contains('already registered')) {
+      return 'This email is already registered';
+    } else if (error.toString().contains('Invalid login')) {
+      return 'Invalid email or password';
+    } else if (error.toString().contains('Network')) {
+      return 'Network error. Please check your connection';
+    }
+    return error.toString();
+  }
 }

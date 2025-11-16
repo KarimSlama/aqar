@@ -87,9 +87,58 @@ flutter test integration_test
 You can check out the UI design on Figma or Behance:
 
 
-## 📂 Project Structure
+## 📂 Project Structur
 
 ```
+aqar
+│  ├─ build.gradle
+│  ├─ fastlane
+│  │  ├─ Appfile
+│  │  ├─ Fastfile
+│  │  ├─ Pluginfile
+│  │  ├─ README.md
+│  │  └─ report.xml
+│  ├─ Gemfile
+│  ├─ Gemfile.lock
+│  ├─ gradle
+│  │  └─ wrapper
+│  │     ├─ gradle-wrapper.jar
+│  │     └─ gradle-wrapper.properties
+│  ├─ gradle.properties
+│  ├─ gradlew
+│  ├─ gradlew.bat
+│  ├─ local.properties
+│  └─ settings.gradle
+├─ assets
+│  ├─ icons
+│  │  ├─ call.svg
+│  │  ├─ chat.svg
+│  │  ├─ coupon.svg
+│  │  ├─ facebook.svg
+│  │  ├─ google.svg
+│  │  ├─ link.svg
+│  │  ├─ nearby.svg
+│  │  ├─ rent.svg
+│  │  ├─ support.svg
+│  │  └─ whatsapp.svg
+│  └─ images
+│     ├─ chatbot.json
+│     ├─ empty.json
+│     ├─ house.png
+│     ├─ house2.png
+│     ├─ house3.png
+│     ├─ house4.png
+│     ├─ house4.svg
+│     ├─ house5.png
+│     ├─ house5.svg
+│     ├─ house6.png
+│     ├─ house7.png
+│     ├─ login_img.svg
+│     ├─ logo.png
+│     └─ splash_bg_image.png
+├─ devtools_options.yaml
+├─ firebase.json
+├─ flutter_launcher_icons.yaml
 ├─ lib
 │  ├─ 3qar
 │  │  ├─ admin_app
@@ -473,7 +522,12 @@ You can check out the UI design on Figma or Behance:
 │  ├─ gen
 │  │  └─ assets.gen.dart
 │  └─ main.dart
+├─ pubspec.lock
+├─ pubspec.yaml
+├─ README.md
+
 ```
+
 ## 👨‍💻 Author
 
 [![Contributors](https://contrib.rocks/image?repo=KarimSlama/testing_all_widgets_flutter)](https://github.com/KarimSlama/testing_all_widgets_flutter/graphs/contributors) **Karim Slama**
