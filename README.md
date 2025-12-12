@@ -528,6 +528,10 @@ aqar
 
 ```
 
+## Design Cover
+![cover upwork](https://github.com/user-attachments/assets/5b680fb2-3520-4424-a197-0a5998cd8bec)
+
+
 ## 👨‍💻 Author
 
 [![Contributors](https://contrib.rocks/image?repo=KarimSlama/testing_all_widgets_flutter)](https://github.com/KarimSlama/testing_all_widgets_flutter/graphs/contributors) **Karim Slama**
